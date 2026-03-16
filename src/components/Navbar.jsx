@@ -544,11 +544,11 @@ const serviceItems = [
 
       {
         name: "Surprise Examination Audits(IAPD)",
-        path: "/surprise-examination",
+        path: "/surprise-examination-audits",
       },
       { name: "Investment Adviser Audits", path: "/investment-adviser" },
       { name: "Small Business Audits", path: "/small-business" },
-      { name: "Corporate Audits", path: "/corporate" },
+      { name: "Corporate Audits", path: "/corporate-audits" },
       { name: "SOC Audits", path: "/soc-audits" },
       { name: "Forensic Investigation", path: "/forensic" },
       { name: "Business Turnaround Consultancy", path: "/turnaround" },

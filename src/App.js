@@ -9,6 +9,9 @@ import { Box } from "@mui/material";
 
 // Import all service pages
 import IssuerAudits from "./pages/services/IssuerAudits";
+import SurpriseExaminationAudits from "./pages/services/SurpriseExaminationAudits";
+import CorporateAudits from "./pages/services/CorporateAudits";
+import SocAudits from "./pages/services/SocAudits.jsx";
 
 function App() {
   return (
@@ -34,6 +37,9 @@ function App() {
         
         {/* Service routes - show only the service page */}
         <Route path="/issuer-audits" element={<IssuerAudits />} />
+        <Route path="/surprise-examination-audits" element={<SurpriseExaminationAudits />} />
+        <Route path="/corporate-audits" element={< CorporateAudits/>} />
+        <Route path="/soc-audits" element={<SocAudits />} />
       </Routes>
       <Footer />
     </Box>
