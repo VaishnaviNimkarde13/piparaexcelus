@@ -1,11 +1,14 @@
 import { Routes, Route } from "react-router-dom"; // Remove BrowserRouter
+
+import { Box } from "@mui/material";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Testimonials from "./pages/Testimonials";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-import { Box } from "@mui/material";
+import Layout from "./pages/Layout.jsx";
+
 
 // Import all service pages
 import IssuerAudits from "./pages/services/IssuerAudits";
@@ -45,10 +48,13 @@ function App() {
           path="/"
           element={
             <>
+            <Layout>
               <Home />
               <About />
               <Testimonials />
               <Contact />
+             
+            </Layout>
             </>
           }
         />

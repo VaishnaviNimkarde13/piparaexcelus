@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, Container, Typography } from "@mui/material";
 
+import bgimg from "../../assets/images/service_bg.png";
+
 const IssuerAudits = () => {
   return (
     <Box
@@ -10,6 +12,7 @@ const IssuerAudits = () => {
     >
       <Container maxWidth="lg">
         {/* Heading */}
+
         <Typography
           variant="h3"
           sx={{
@@ -18,6 +21,12 @@ const IssuerAudits = () => {
             fontWeight: 700,
             mb: 5,
             fontSize: { xs: "28px", md: "40px" },
+
+            backgroundImage: `url(${bgimg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            px: 3,
+            py: 8,
           }}
         >
           Issuer audits
@@ -87,8 +96,8 @@ const IssuerAudits = () => {
             Our experienced audit team conducts thorough financial audits,
             scrutinizing every aspect of an issuer’s financial statements with
             precision and expertise. Apart from the numbers, our Issuer Audit
-            services provide assurance to stakeholders that financial
-            statements comply with relevant accounting standards and regulatory
+            services provide assurance to stakeholders that financial statements
+            comply with relevant accounting standards and regulatory
             requirements.
           </Typography>
 

@@ -1,10 +1,11 @@
 import React from "react";
 import { Box, Container, Typography } from "@mui/material";
+import bgimg from "../../assets/images/service_bg.png";
 
 const SocAudits = () => {
   return (
     <Box
-      sx={{     
+      sx={{
         py: 8,
       }}
     >
@@ -18,9 +19,14 @@ const SocAudits = () => {
             fontWeight: 700,
             mb: 5,
             fontSize: { xs: "28px", md: "40px" },
+            backgroundImage: `url(${bgimg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            px: 3,
+            py: 8,
           }}
         >
-          Issuer audits
+          Soc audits
         </Typography>
 
         {/* Content */}

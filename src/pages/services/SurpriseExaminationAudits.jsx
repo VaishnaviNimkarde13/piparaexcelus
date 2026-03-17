@@ -1,11 +1,11 @@
 import React from "react";
 import { Box, Container, Typography } from "@mui/material";
+import bgimg from "../../assets/images/service_bg.png";
 
 const SurpriseExaminationAudits = () => {
   return (
     <Box
       sx={{
-    
         py: 8,
       }}
     >
@@ -19,6 +19,12 @@ const SurpriseExaminationAudits = () => {
             fontWeight: 700,
             mb: 5,
             fontSize: { xs: "28px", md: "40px" },
+
+            backgroundImage: `url(${bgimg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            px: 3,
+            py: 8,
           }}
         >
           Surprise Examination Audits (IAPD)
@@ -76,8 +82,6 @@ const SurpriseExaminationAudits = () => {
             responses with investment advisor records, and implementing
             alternative procedures when necessary.
           </Typography>
-
-          
         </Box>
       </Container>
     </Box>

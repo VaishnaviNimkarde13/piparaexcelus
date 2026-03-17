@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -42,7 +42,10 @@ const serviceItems = [
       { name: "Corporate Audits", path: "/corporate-audits" },
       { name: "SOC Audits", path: "/soc-audits" },
       { name: "Forensic Investigation", path: "/forensic-investigation" },
-      { name: "Business Turnaround Consultancy", path: "/business-turnaround-consultancy" },
+      {
+        name: "Business Turnaround Consultancy",
+        path: "/business-turnaround-consultancy",
+      },
     ],
   },
   {
@@ -80,10 +83,11 @@ const serviceItems = [
     main: "Due Diligence",
     subItems: [
       { name: "Financial Due Diligence", path: "/financial-due-diligence" },
-    
     ],
   },
 ];
+
+
 
 function Navbar() {
   const theme = useTheme();
@@ -94,6 +98,9 @@ function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [hoveredService, setHoveredService] = useState(null);
   const [subAnchorEl, setSubAnchorEl] = useState(null);
+
+  const [drawerServicesOpen, setDrawerServicesOpen] = useState(false); // ADD THIS
+  const [drawerServiceSubOpen, setDrawerServiceSubOpen] = useState({}); // ADD THIS
 
   const handleServicesHover = (event) => {
     setAnchorEl(event.currentTarget);
@@ -151,54 +158,76 @@ function Navbar() {
     window.open("https://wa.me/16463872034", "_blank");
   };
 
-
-
   const handleContactClick = () => {
-  // If we're not on the home page, navigate to home first
-  if (window.location.pathname !== "/") {
-    navigate("/");
-    // Wait a bit for the page to load, then scroll to contact
-    setTimeout(() => {
+    // If we're not on the home page, navigate to home first
+    if (window.location.pathname !== "/") {
+      navigate("/");
+      // Wait a bit for the page to load, then scroll to contact
+      setTimeout(() => {
+        handleScroll("Contact");
+      }, 100);
+    } else {
+      // Already on home page, just scroll
       handleScroll("Contact");
-    }, 100);
-  } else {
-    // Already on home page, just scroll
-    handleScroll("Contact");
-  }
-};
+    }
+  };
 
+  // ADD THIS NEW FUNCTION HERE
+  const handleNavClick = (item) => {
+    if (item === "Services") {
+      // Services is handled separately by the dropdown
+      return;
+    }
 
-// ADD THIS NEW FUNCTION HERE
-const handleNavClick = (item) => {
-  if (item === "Services") {
-    // Services is handled separately by the dropdown
-    return;
-  }
-  
-  // If we're not on the home page, navigate to home first
-  if (window.location.pathname !== "/") {
-    navigate("/");
-    // Wait a bit for the page to load, then scroll to the section
-    setTimeout(() => {
+    // If we're not on the home page, navigate to home first
+    if (window.location.pathname !== "/") {
+      navigate("/");
+      // Wait a bit for the page to load, then scroll to the section
+      setTimeout(() => {
+        handleScroll(item);
+      }, 100);
+    } else {
+      // Already on home page, just scroll
       handleScroll(item);
-    }, 100);
-  } else {
-    // Already on home page, just scroll
-    handleScroll(item);
-  }
-};
+    }
+  };
 
-
-const handleServiceNavigation = (path) => {
+  const handleServiceNavigation = (path) => {
     // Close all popovers first
-  handleServicesClose(); // This will close both main and sub menus
-  // Navigate to the service page
-  navigate(path);
-  // Scroll to top immediately after navigation
-  setTimeout(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, 0);
-};
+    handleServicesClose(); // This will close both main and sub menus
+    // Navigate to the service page
+    navigate(path);
+    // Scroll to top immediately after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 0);
+  };
+
+  // Add this after your state declarations
+useEffect(() => {
+  const handleResize = () => {
+    if (open) {
+      setOpen(false);
+    }
+  };
+
+  window.addEventListener('resize', handleResize);
+  
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+}, [open]);
+
+
+
+// Add this useEffect to reset drawer states when opened
+useEffect(() => {
+  if (open) {
+    // Reset all drawer dropdown states when drawer opens
+    setDrawerServicesOpen(false);
+    setDrawerServiceSubOpen({});
+  }
+}, [open]);
   // Check if services popover is open
   const servicesOpen = Boolean(anchorEl);
   const subMenuOpen = Boolean(hoveredService);
@@ -347,8 +376,8 @@ const handleServiceNavigation = (path) => {
                           sx: {
                             pointerEvents: "auto",
                             boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-                           
-                            borderRadius:0,
+
+                            borderRadius: 0,
                             minWidth: 280,
                           },
                         }}
@@ -372,7 +401,6 @@ const handleServiceNavigation = (path) => {
                                   justifyContent: "space-between",
                                   alignItems: "center",
                                   "&:hover": {
-                                   
                                     "& .MuiTypography-root": {
                                       color: "#2f4da1",
                                     },
@@ -384,11 +412,10 @@ const handleServiceNavigation = (path) => {
                               >
                                 <Typography
                                   sx={{
-                                  
-                                    fontSize: 16, 
+                                    fontSize: 16,
                                     color: "#7a1f4d",
                                     fontWeight: 500,
-                                    
+
                                     transition: "color 0.2s",
                                   }}
                                 >
@@ -449,7 +476,6 @@ const handleServiceNavigation = (path) => {
                                         py: 1.2,
                                         cursor: "pointer",
                                         "&:hover": {
-                                      
                                           "& .MuiTypography-root": {
                                             color: "#2f4da1",
                                           },
@@ -458,8 +484,8 @@ const handleServiceNavigation = (path) => {
                                     >
                                       <Typography
                                         sx={{
-                                         fontSize: 16, 
-                                    color: "#7a1f4d",
+                                          fontSize: 16,
+                                          color: "#7a1f4d",
                                           transition: "color 0.2s",
                                           lineHeight: 1.4,
                                         }}
@@ -525,19 +551,137 @@ const handleServiceNavigation = (path) => {
       </Toolbar>
 
       {/* MOBILE DRAWER */}
-      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <Box sx={{ width: 280 }}>
-          <List>
-            {menuItems.map((item) => (
-              <ListItem key={item} disablePadding>
-                <ListItemButton onClick={() => handleNavClick(item)}>
+
+      {/* MOBILE DRAWER */}
+    <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
+  <Box sx={{ width: 280, color: "#7a1f4d" }}>
+    <List>
+      {menuItems.map((item) => {
+        if (item === "Services") {
+          return (
+            <Box key={item}>
+              <ListItem disablePadding>
+                <ListItemButton
+                  onClick={() => {
+                    // Toggle services expand in drawer
+                    const expanded = !drawerServicesOpen;
+                    setDrawerServicesOpen(expanded);
+                  }}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                  }}
+                >
                   <ListItemText primary={item} />
+                  <ExpandMoreIcon
+                    sx={{
+                      transform: drawerServicesOpen
+                        ? "rotate(180deg)"
+                        : "rotate(0deg)",
+                      transition: "transform 0.3s",
+                      color: "#7a1f4d",
+                    }}
+                  />
                 </ListItemButton>
               </ListItem>
-            ))}
-          </List>
-        </Box>
-      </Drawer>
+
+              {/* Services Submenu in Drawer */}
+              {drawerServicesOpen && (
+                <Box sx={{ pl: 2 }}>
+                  {serviceItems.map((service, index) => (
+                    <Box key={index}>
+                      <ListItem disablePadding>
+                        <ListItemButton
+                          onClick={() => {
+                            // Toggle service subitems
+                            const newState = { ...drawerServiceSubOpen };
+                            newState[service.main] =
+                              !newState[service.main];
+                            setDrawerServiceSubOpen(newState);
+                          }}
+                          sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            py: 1,
+                          }}
+                        >
+                          <ListItemText
+                            primary={service.main}
+                            primaryTypographyProps={{
+                              sx: {
+                                color: "#7a1f4d",
+                                fontWeight: 500,
+                                fontSize: "15px",
+                              },
+                            }}
+                          />
+                          <Typography
+                            sx={{
+                              fontSize: 20,
+                              color: "#7a1f4d",
+                              transform: drawerServiceSubOpen[
+                                service.main
+                              ]
+                                ? "rotate(90deg)"
+                                : "rotate(0deg)",
+                              transition: "transform 0.2s",
+                            }}
+                          >
+                            ›
+                          </Typography>
+                        </ListItemButton>
+                      </ListItem>
+
+                      {/* Sub-subitems */}
+                      {drawerServiceSubOpen[service.main] && (
+                        <Box sx={{ pl: 2 }}>
+                          {service.subItems.map((subItem, subIndex) => (
+                            <ListItem key={subIndex} disablePadding>
+                              <ListItemButton
+                                onClick={() => {
+                                  setOpen(false);
+                                  handleServiceNavigation(subItem.path);
+                                }}
+                                sx={{ py: 0.8 }}
+                              >
+                                <ListItemText
+                                  primary={subItem.name}
+                                  primaryTypographyProps={{
+                                    sx: {
+                                      color: "#7a1f4d",
+                                      fontSize: "14px",
+                                    },
+                                  }}
+                                />
+                              </ListItemButton>
+                            </ListItem>
+                          ))}
+                        </Box>
+                      )}
+                    </Box>
+                  ))}
+                </Box>
+              )}
+            </Box>
+          );
+        }
+
+        return (
+          <ListItem key={item} disablePadding>
+            <ListItemButton
+              onClick={() => {
+                handleNavClick(item);
+                setOpen(false);
+              }}
+            >
+              <ListItemText primary={item} />
+            </ListItemButton>
+          </ListItem>
+        );
+      })}
+    </List>
+  </Box>
+</Drawer>
     </AppBar>
   );
 }

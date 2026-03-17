@@ -1,11 +1,11 @@
 import React from "react";
 import { Box, Container, Typography } from "@mui/material";
+import bgimg from "../../assets/images/service_bg.png";
 
 const DigitalAnalytics = () => {
   return (
     <Box
       sx={{
-       
         py: 8,
       }}
     >
@@ -19,6 +19,11 @@ const DigitalAnalytics = () => {
             fontWeight: 700,
             mb: 5,
             fontSize: { xs: "28px", md: "40px" },
+            backgroundImage: `url(${bgimg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            px: 3,
+            py: 8,
           }}
         >
           Digital Analytics & Data Driven Insights
