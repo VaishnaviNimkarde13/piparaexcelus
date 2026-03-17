@@ -4,8 +4,7 @@ import { Box, Container, Typography } from "@mui/material";
 const SocAudits = () => {
   return (
     <Box
-      sx={{
-        backgroundColor: "#f4f4f4",
+      sx={{     
         py: 8,
       }}
     >

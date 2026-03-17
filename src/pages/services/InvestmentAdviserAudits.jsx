@@ -1,115 +1,72 @@
-    import React from "react";
-    import { Box, Container, Typography } from "@mui/material";
-    
-    const IssuerAudits = () => {
-      return (
-        <Box
+import React from "react";
+import { Box, Container, Typography } from "@mui/material";
+
+const InvestmentAdviserAudits = () => {
+  return (
+    <Box
+      sx={{
+        
+        py: 8,
+      }}
+    >
+      <Container maxWidth="lg">
+        {/* Heading */}
+        <Typography
+          variant="h3"
           sx={{
-            backgroundColor: "#f4f4f4",
-            py: 8,
+            textAlign: "center",
+            color: "#294b8c",
+            fontWeight: 700,
+            mb: 5,
+            fontSize: { xs: "28px", md: "40px" },
           }}
         >
-          <Container maxWidth="lg">
-            {/* Heading */}
-            <Typography
-              variant="h3"
-              sx={{
-                textAlign: "center",
-                color: "#294b8c",
-                fontWeight: 700,
-                mb: 5,
-                fontSize: { xs: "28px", md: "40px" },
-              }}
-            >
-              Issuer audits
-            </Typography>
-    
-            {/* Content */}
-            <Box
-              sx={{
-                maxWidth: "1050px",
-                margin: "0 auto",
-              }}
-            >
-              <Typography
-                sx={{
-                  color: "#7a1f2b",
-                  fontSize: "16px",
-                  lineHeight: "1.9",
-                  mb: 3,
-                  textAlign: "left",
-                }}
-              >
-                As skilled professionals, we take pride in delivering meticulous
-                assurance services, ensuring the accuracy and reliability of
-                financial information for entities that issues securities or are
-                regulated by SEC. being a PCAOB registered firm, we are capable of
-                undertaking audits of entities that are planning to either file
-                under Reg A, a S-1, a F-1, or a SPAC. We have been working on issuer
-                audits since 2022, and have gained varied experience over
-                engagements for issuers / prospective issuers.
-              </Typography>
-    
-              <Typography
-                sx={{
-                  color: "#7a1f2b",
-                  fontSize: "16px",
-                  lineHeight: "1.9",
-                  mb: 3,
-                }}
-              >
-                We also work with OTC traded companies, providing transparent,
-                ethical and TIMELY audit services.
-              </Typography>
-    
-              <Typography
-                sx={{
-                  color: "#7a1f2b",
-                  fontSize: "16px",
-                  lineHeight: "1.9",
-                  mb: 3,
-                }}
-              >
-                At Pipara, we understand that the audit of financial statements for
-                issuers is a critical process that goes beyond routine compliance.
-                We are dedicated to staying informed about regulatory changes and
-                possess the expertise required to deliver comprehensive assurance
-                services customized to the specific requirements of issuers.
-              </Typography>
-    
-              <Typography
-                sx={{
-                  color: "#7a1f2b",
-                  fontSize: "16px",
-                  lineHeight: "1.9",
-                  mb: 3,
-                }}
-              >
-                Our experienced audit team conducts thorough financial audits,
-                scrutinizing every aspect of an issuer’s financial statements with
-                precision and expertise. Apart from the numbers, our Issuer Audit
-                services provide assurance to stakeholders that financial
-                statements comply with relevant accounting standards and regulatory
-                requirements.
-              </Typography>
-    
-              <Typography
-                sx={{
-                  color: "#7a1f2b",
-                  fontSize: "16px",
-                  lineHeight: "1.9",
-                }}
-              >
-                We help identify and address potential financial risks proactively.
-                Our comprehensive services provide insights that empower issuers to
-                navigate challenges with foresight. The insights derived from our
-                audits empower issuer leadership with information for strategic
-                decision-making, risk management, and future planning.
-              </Typography>
-            </Box>
-          </Container>
+          Investment Adviser Audits
+        </Typography>
+
+        {/* Content */}
+        <Box
+          sx={{
+            maxWidth: "1050px",
+            margin: "0 auto",
+          }}
+        >
+          <Typography
+            sx={{
+              color: "#7a1f2b",
+              fontSize: "16px",
+              lineHeight: "1.9",
+              mb: 3,
+              textAlign: "left",
+            }}
+          >
+            As regulations continue to evolve, registered advisers to private
+            funds are now required to provide quarterly statements to investors,
+            obtain annual audits for the funds they advise, and secure fairness
+            or valuation opinions for adviser-led secondary transactions.
+            Private funds previously subject to surprise exams must now prepare
+            for annual audits to meet this new requirement. Our comprehensive
+            audit solutions not only meet these regulatory demands but also
+            ensure alignment with the audit provision in the custody rule of the
+            Investment Advisers Act of 1940.
+          </Typography>
+
+          <Typography
+            sx={{
+              color: "#7a1f2b",
+              fontSize: "16px",
+              lineHeight: "1.9",
+              mb: 3,
+            }}
+          >
+            At Pipara, we specialize in navigating these regulatory changes,
+            offering tailored audit services to ensure compliance, transparency,
+            and the integrity of investment practices.
+          </Typography>
         </Box>
-      );
-    };
-    
-    export default IssuerAudits;
+      </Container>
+    </Box>
+  );
+};
+
+export default InvestmentAdviserAudits;

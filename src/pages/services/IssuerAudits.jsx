@@ -5,7 +5,6 @@ const IssuerAudits = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#f4f4f4",
         py: 8,
       }}
     >

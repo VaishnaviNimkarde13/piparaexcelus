@@ -1,11 +1,11 @@
 import React from "react";
 import { Box, Container, Typography } from "@mui/material";
 
-const SurpriseExaminationAudits = () => {
+const TaxService3 = () => {
   return (
     <Box
       sx={{
-    
+     
         py: 8,
       }}
     >
@@ -21,7 +21,7 @@ const SurpriseExaminationAudits = () => {
             fontSize: { xs: "28px", md: "40px" },
           }}
         >
-          Surprise Examination Audits (IAPD)
+          Individuals - Expat Tax Assessment & Filing under Treaties
         </Typography>
 
         {/* Content */}
@@ -40,10 +40,10 @@ const SurpriseExaminationAudits = () => {
               textAlign: "left",
             }}
           >
-            As per regulatory requirements, investment advisors are mandated to
-            undergo a “Surprise” accountant examination to ensure the existence
-            and proper naming of client funds and securities held at custodians,
-            with totals matching the advisor’s records.
+            Whether you’re a US citizen living abroad or a foreign national
+            working in the US, we can assist you in assessing your tax residency
+            status, identifying applicable tax treaties and exemptions, and
+            optimizing your tax situation.
           </Typography>
 
           <Typography
@@ -54,11 +54,11 @@ const SurpriseExaminationAudits = () => {
               mb: 3,
             }}
           >
-            At Pipara, we pride ourselves on being a PCAOB inspected entity,
-            fully equipped and authorized to conduct audits for investment
-            entities of any scale. Our comprehensive audit approach is designed
-            to streamline the audit process, ensuring a seamless and timely
-            experience for our clients.
+            At Pipara, we specialize in providing tailored Expat Tax Assessment
+            & Filing services for individuals living abroad in the US. We
+            understand the complexities involved in assessing and filing taxes
+            under treaties, and our experienced team is here to help you
+            navigate these challenges.
           </Typography>
 
           <Typography
@@ -69,19 +69,15 @@ const SurpriseExaminationAudits = () => {
               mb: 3,
             }}
           >
-            Our experienced audit team conducts thorough procedures to ensure
-            the security of client funds and securities. This includes
-            confirming with qualified custodians and clients regarding the
-            existence and proper custody of assets, reconciling confirmation
-            responses with investment advisor records, and implementing
-            alternative procedures when necessary.
+            Our team of tax professionals is well-versed in the intricate tax
+            laws and treaties that govern expatriate taxation. We ensure that
+            you maximize tax benefits while remaining compliant with US tax
+            regulations and international treaties.
           </Typography>
-
-          
         </Box>
       </Container>
     </Box>
   );
 };
 
-export default SurpriseExaminationAudits;
+export default TaxService3;
