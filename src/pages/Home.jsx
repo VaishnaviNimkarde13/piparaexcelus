@@ -171,7 +171,7 @@ const Home = () => {
         py={{ xs: 6, md: 10 }} 
         bgcolor="#fff"
       >
-        <Container maxWidth="xl" sx={{ textAlign: "center", px: 2 }}>
+        <Container maxWidth="lg" sx={{ textAlign: "center", px: 2 }}>
           <Typography
             sx={{
               fontSize: { xs: 24, md: 33 },

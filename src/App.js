@@ -32,14 +32,14 @@ import DueDiligence from "./pages/services/DueDiligence.jsx";
 function App() {
   return (
     <Box
-      sx={{
-        width: "100%",
-        "& .MuiContainer-root": {
-          maxWidth: "none !important",
-          paddingLeft: "16px !important",
-          paddingRight: "16px !important",
-        },
-      }}
+      // sx={{
+      //   width: "100%",
+      //   "& .MuiContainer-root": {
+      //     maxWidth: "none !important",
+      //     paddingLeft: "0px !important",
+      //     paddingRight: "0px !important",
+      //   },
+      // }}
     >
       <Navbar />
       <Routes>

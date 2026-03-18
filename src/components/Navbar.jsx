@@ -238,8 +238,8 @@ useEffect(() => {
       elevation={0}
       sx={{
         backgroundColor: "rgb(255, 254, 254)",
-        pl: { xs: 2, sm: 2, md: 3, lg: 3.7 },
-        pr: { xs: 2, sm: 2, md: 4, lg: 8 },
+        pl: 0,
+        pr:0,
       }}
     >
       <Toolbar
@@ -248,7 +248,7 @@ useEffect(() => {
           alignItems: "center",
           justifyContent: "space-between",
           minHeight: { xs: 80, md: 75 },
-          px: { xs: 1, sm: 1, md: 2 },
+          px: 0,
         }}
       >
         {/* LEFT SIDE - Icons and Hamburger */}

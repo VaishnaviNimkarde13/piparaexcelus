@@ -11,7 +11,7 @@ const Footer = () => {
         textAlign: "center",
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth={false} disableGutters>
         <Typography
           variant="body1"
           sx={{

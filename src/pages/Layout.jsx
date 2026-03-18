@@ -13,8 +13,7 @@ const Layout = ({ children }) => {
       <Box
         sx={{
           width: '100%',
-          maxWidth: '1200px',
-          mx: 'auto', // Centers the content
+        
         }}
       >
         {children}
